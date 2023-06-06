@@ -1,0 +1,49 @@
+.home {
+  text-align: initial;
+}
+
+.container-fluid {
+  padding-right: 6rem;
+  padding-left: 6rem;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.mt3 {
+  margin-top: 3vh;
+}
+
+.item {
+  border: 1px solid white;
+  margin: 2px;
+  box-shadow: 1px 2px #afa1a1;
+  height: 150px;
+  width: 175px;
+  margin: 10px;
+}
+
+.item:hover {
+  border-color: grey;
+}
+
+.bgimg {
+  background-size:100% 100%;
+}
+
+.bgimg-cdn {
+  background-image: url("/pages/IMS/imslib2.js/demo-react-app/cdn.png");
+}
+.cursor-pointer {
+  cursor: pointer;
+  z-index: 2;
+}
+
+.bgimg-npm {
+  background-image: url("/pages/IMS/imslib2.js/demo-react-app/npm.png");
+}
+
+.bgimg-thin {
+  background-image: url("/pages/IMS/imslib2.js/demo-react-app/javascript.jpg");
+}

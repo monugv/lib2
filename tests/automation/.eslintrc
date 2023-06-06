@@ -1,0 +1,28 @@
+{
+  "plugins": ["webdriverio", "jasmine"],
+  "env": {
+    "webdriverio/wdio": true,
+    "jasmine": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    // enable additional rules
+    "indent": ["error", 4],
+    "semi": ["error", "always"],
+    "no-console": ["warn"],
+    "no-unused-vars":"warn"
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "globals": {
+    "expect": true,
+    "assert": true
+  }
+}

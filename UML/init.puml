@@ -1,0 +1,23 @@
+@startuml
+(*) -down-> "Define window.adobeId object"
+-down-> "Load IMSLib"
+if "URL contains fragment, fromIMS param" then
+-down->[true] "Process fragment"
+if "Processing successful" then
+-down->[true] "onReady()"
+-down-> (*)
+else
+-down->[false] "onError()"
+-down->"onReady()"
+endif
+else
+-down->[false] "check/token"
+if "SSO Successful" then
+-down->[true] "Store AT and profile"
+-down-> "Setup auto-refresh"
+-down->[true] "onReady()"
+else
+-down->[false] "onError()"
+endif
+endif
+@enduml

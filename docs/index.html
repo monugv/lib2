@@ -1,0 +1,1085 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>imslib2</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">imslib2</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>imslib2</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#table-of-contents" id="table-of-contents" style="color: inherit; text-decoration: none;">
+					<h1>Table of contents</h1>
+				</a>
+				<ol>
+					<li><a href="#about">About this project</a></li>
+					<li><a href="#new">What&#39;s new in imslib2.js ?</a></li>
+					<li><a href="#documentation">Documentation</a></li>
+					<li><a href="#artefacts">Artefacts</a></li>
+					<li><a href="#features">Specific features</a></li>
+					<li><a href="#guide">Integration guide</a><ol>
+							<li><a href="#initialize">Initialize the library</a></li>
+							<li><a href="#version">Determine imslib.js version</a></li>
+							<li><a href="#example">Code example</a></li>
+							<li><a href="#demo">Demo application</a></li>
+							<li><a href="#v1v2-methods">Differences between v1 and v2: Methods</a></li>
+							<li><a href="#v1v2-events">Differences between v1 and v2: Events</a></li>
+							<li><a href="#adobe-launch">3rd party library integration</a></li>
+							<li><a href="#standalone">Standalone mode (initialize the library with an existing token)&quot;</a></li>
+							<li><a href="#ijttoken">IJT mode (initialize the library with an existing ijt token)&quot;</a> </li>
+						</ol>
+					</li>
+					<li><a href="#contributor">Contributor resources</a></li>
+				</ol>
+				<a href="#about-this-project-a-nameabouta" id="about-this-project-a-nameabouta" style="color: inherit; text-decoration: none;">
+					<h1>About this project <a name="about"></a></h1>
+				</a>
+				<p>imslib2.js is a new implementation of imslib.js, a JavaScript library for integration with IMS. Imslib.js aims to close this gap and provide a layer of interaction with the Identity Services that is uniform and consistent across all web integrations.
+				Main features:</p>
+				<ul>
+					<li>Single sign on</li>
+					<li>Session persistence</li>
+					<li>Authorization</li>
+					<li>Resource accesss</li>
+					<li>Seamless client integration
+						<a href="#what39s-new-in-imslib2js--a-namenewa" id="what39s-new-in-imslib2js--a-namenewa" style="color: inherit; text-decoration: none;">
+							<h1>What&#39;s new in imslib2.js ? <a name="new"></a></h1>
+						</a>
+					</li>
+					<li>Different versions of the library are available<ul>
+							<li>Regular</li>
+							<li>Thin version (only support for signin and logout)</li>
+							<li>Polyfill version </li>
+						</ul>
+					</li>
+					<li>Library is available online as well as artifactory (to be used via npm)</li>
+					<li>CSRF protection</li>
+					<li>Debouncing</li>
+				</ul>
+				<a href="#documentation-a-namedocumentationa" id="documentation-a-namedocumentationa" style="color: inherit; text-decoration: none;">
+					<h1>Documentation <a name="documentation"></a></h1>
+				</a>
+				<ul>
+					<li><a href="https://git.corp.adobe.com/pages/IMS/imslib2.js/classes/_adobe_ims_adobeims_.adobeims.html">AdobeIMS class</a></li>
+					<li>IMS integration guide, <a href="https://wiki.corp.adobe.com/display/ims/IMS+Integration+Guide">https://wiki.corp.adobe.com/display/ims/IMS+Integration+Guide</a></li>
+					<li>IMS APIs <a href="https://wiki.corp.adobe.com/display/ims/Endpoints+Index">https://wiki.corp.adobe.com/display/ims/Endpoints+Index</a></li>
+					<li>Old imslib.js, <a href="https://git.corp.adobe.com/pages/IMS/imslib.js">https://git.corp.adobe.com/pages/IMS/imslib.js</a></li>
+				</ul>
+				<a href="#artefacts-a-nameartefactsa" id="artefacts-a-nameartefactsa" style="color: inherit; text-decoration: none;">
+					<h1>Artefacts <a name="artefacts"></a></h1>
+				</a>
+				<a href="#hosted" id="hosted" style="color: inherit; text-decoration: none;">
+					<h2>Hosted</h2>
+				</a>
+				<ul>
+					<li><p>Ims Library: </p>
+						<ul>
+							<li>(STAGE) <a href="https://auth-stg1.services.adobe.com/imslib/imslib.min.js">https://auth-stg1.services.adobe.com/imslib/imslib.min.js</a></li>
+							<li>(STAGE) <a href="https://auth-stg1.services.adobe.com/imslib/imslib.js">https://auth-stg1.services.adobe.com/imslib/imslib.js</a></li>
+							<li>(PROD) <a href="https://auth.services.adobe.com/imslib/imslib.min.js">https://auth.services.adobe.com/imslib/imslib.min.js</a></li>
+						</ul>
+					</li>
+					<li><p>Ims Library (for all IE versions)</p>
+						<ul>
+							<li>(STAGE) <a href="https://auth-stg1.services.adobe.com/imslib/imslib-polyfill.min.js">https://auth-stg1.services.adobe.com/imslib/imslib-polyfill.min.js</a></li>
+							<li>(STAGE) <a href="https://auth-stg1.services.adobe.com/imslib/imslib-polyfill.js">https://auth-stg1.services.adobe.com/imslib/imslib-polyfill.js</a></li>
+							<li>(PROD) <a href="https://auth.services.adobe.com/imslib/imslib-polyfill.min.js">https://auth.services.adobe.com/imslib/imslib-polyfill.min.js</a></li>
+						</ul>
+					</li>
+					<li><p>Ims thin library (only signIn, signOut, fragment values)</p>
+						<ul>
+							<li>(STAGE) <a href="https://auth-stg1.services.adobe.com/imslib/imslib-thin.min.js">https://auth-stg1.services.adobe.com/imslib/imslib-thin.min.js</a> / </li>
+							<li>(STAGE) <a href="https://auth-stg1.services.adobe.com/imslib/imslib-thin.js">https://auth-stg1.services.adobe.com/imslib/imslib-thin.js</a></li>
+							<li>(PROD) <a href="https://auth.services.adobe.com/imslib/imslib-thin.min.js">https://auth.services.adobe.com/imslib/imslib-thin.min.js</a> </li>
+						</ul>
+					</li>
+					<li><p>Ims thin library with polyfils (only signIn, signOut, fragment values)</p>
+						<ul>
+							<li>(STAGE) <a href="https://auth-stg1.services.adobe.com/imslib/imslib-thin-polyfill.min.js">https://auth-stg1.services.adobe.com/imslib/imslib-thin-polyfill.min.js</a></li>
+							<li>(STAGE) <a href="https://auth-stg1.services.adobe.com/imslib/imslib-thin-polyfill.js">https://auth-stg1.services.adobe.com/imslib/imslib-thin-polyfill.js</a></li>
+							<li>(PROD)<a href="https://auth.services.adobe.com/imslib/imslib-thin-polyfill.min.js">https://auth.services.adobe.com/imslib/imslib-thin-polyfill.min.js</a></li>
+						</ul>
+					</li>
+				</ul>
+				<a href="#artifactory" id="artifactory" style="color: inherit; text-decoration: none;">
+					<h2>Artifactory</h2>
+				</a>
+				<p>Add the following to your ~/.npmrc:</p>
+				<pre><code><span class="hljs-variable">@identity:</span>registry=<span class="hljs-attribute">https</span>:<span class="hljs-comment">//artifactory.corp.adobe.com:443/artifactory/api/npm/npm-adobe-release</span>
+<span class="hljs-comment">//artifactory.corp.adobe.com:443/artifactory/api/npm/npm-adobe-release/:always-auth=false</span></code></pre><p>Ims library can be added to a project by installing the package</p>
+				<pre><code>npm <span class="hljs-keyword">install</span> @<span class="hljs-keyword">identity</span>/imslib <span class="hljs-comment">--save</span></code></pre><p>After instalation the library can be imported as described below:</p>
+				<pre><code><span class="hljs-keyword">import</span> { AdobeIMS, AdobeIMSThin, AdobeIMSPolyfill, AdobeIMSThinPolyfill } <span class="hljs-keyword">from</span> <span class="hljs-string">'@identity/imslib'</span>;
+<span class="hljs-keyword">const</span> adobeIms = <span class="hljs-keyword">new</span> AdobeIMS();
+adobeIms.initialize();</code></pre><p><em>NOTE:</em> Depending by application requirements, is better to import only one library instead of all of them.</p>
+				<a href="#specific-features-a-namefeaturesa" id="specific-features-a-namefeaturesa" style="color: inherit; text-decoration: none;">
+					<h1>Specific features <a name="features"></a></h1>
+				</a>
+				<a href="#csrf" id="csrf" style="color: inherit; text-decoration: none;">
+					<h2>CSRF</h2>
+				</a>
+				<p>IMSLib has a built-in protection against CSRF, where a nonce is generated and encoded into the redirect uri. More information here, <a href="https://wiki.corp.adobe.com/display/ims/CSRF+documentation+and+flow">https://wiki.corp.adobe.com/display/ims/CSRF+documentation+and+flow</a>
+					For the thin version of the libarary, developers must pass the nonce value to signIn method as a second argument and verify the nonce value on redirect. For this, there are two helper methods: <code>getNonce()</code> and <code>fragmentValues()</code>
+				Is recommended the nonce length to be 16 alphanumeric characters. </p>
+				<p>The CSRF documentation flow can be found here: <a href="https://wiki.corp.adobe.com/display/ims/CSRF+documentation+and+flow">https://wiki.corp.adobe.com/display/ims/CSRF+documentation+and+flow</a></p>
+				<a href="#debouncing" id="debouncing" style="color: inherit; text-decoration: none;">
+					<h2>Debouncing</h2>
+				</a>
+				<p>All API responses are cached for 1 second interval</p>
+				<a href="#storage" id="storage" style="color: inherit; text-decoration: none;">
+					<h2>Storage</h2>
+				</a>
+				<p>The default storage used by ims library is <strong>session storage</strong> </p>
+				<p>if adobeid.useLocalStorage value is true, local storage it is used, otherwise session storage.</p>
+				<p><strong>Note:</strong> in order to use local storage for storing the access tokens you will need ASSET approval</p>
+				<a href="#logging" id="logging" style="color: inherit; text-decoration: none;">
+					<h2>Logging</h2>
+				</a>
+				<p>The default behaviour is not to write the log messages to the console;</p>
+				<p>window.adobeId can contain the logsEnabled property; if true, the log messages will be visible to the console window otherwise not;</p>
+				<p>On runtime, the developer has the possibility to enable the logging mechanism by calling:</p>
+				<pre><code>adobeIMS.enableLogging()<span class="hljs-comment">;    </span></code></pre><p> or disable by calling</p>
+				<pre><code>adobeIMS.disableLogging()<span class="hljs-comment">;    </span></code></pre>
+				<a href="#custom-http-errors" id="custom-http-errors" style="color: inherit; text-decoration: none;">
+					<h2>Custom Http Errors</h2>
+				</a>
+				<p>The library handles three types of http errors: networkError(0), rate_limited (429), server_error(5xx). For each one of these errors, the session or any local storage value remain unchanged.
+					The onError handler is triggered in case of (0, 429, 5xx): <code>adobeId.onError(IErrorType.Http, message)</code>
+				Message can contain the following fields:</p>
+				<pre><code>    code: <span class="hljs-built_in">number</span>;
+    <span class="hljs-keyword">error</span>?: <span class="hljs-built_in">string</span>;
+    retryAfter?: <span class="hljs-built_in">number</span>;
+    message?: <span class="hljs-built_in">string</span>;</code></pre>
+				<a href="#rate-limiting" id="rate-limiting" style="color: inherit; text-decoration: none;">
+					<h2>Rate limiting</h2>
+				</a>
+				<p>IMSLib.js offers the following notification in case of rate limiting response from IMS :</p>
+				<pre><code>{
+    <span class="hljs-attribute">name</span>: <span class="hljs-string">'rate_limit'</span>,
+    retryAfter: httpException.header ? <span class="hljs-built_in">parseInt</span>( httpException.headers.retryAfter ) : <span class="hljs-number">10</span>,
+}</code></pre><p>This information is used to call the onError handler registered on adobeid;</p>
+				<a href="#integration-of-imslib-v2-a-nameguidea" id="integration-of-imslib-v2-a-nameguidea" style="color: inherit; text-decoration: none;">
+					<h1>Integration of imslib v2 <a name="guide"></a></h1>
+				</a>
+				<a href="#initialize-the-library-a-nameinitializea" id="initialize-the-library-a-nameinitializea" style="color: inherit; text-decoration: none;">
+					<h3>Initialize the library <a name="initialize"></a></h3>
+				</a>
+				<pre><code><span class="hljs-built_in">window</span>.adobeid = {
+      <span class="hljs-attr">client_id</span>: <span class="hljs-string">'IMSLibJSTestClient'</span>,
+      <span class="hljs-attr">scope</span>: <span class="hljs-string">'AdobeID,openid'</span>,
+      <span class="hljs-attr">locale</span>: <span class="hljs-string">'en_US'</span>,
+      <span class="hljs-attr">environment</span>: <span class="hljs-string">'stg1'</span>,
+      <span class="hljs-attr">useLocalStorage</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-attr">autoValidateToken</span>: <span class="hljs-literal">true</span>,
+      <span class="hljs-attr">onAccessToken</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">tokenInformation</span>) </span>{
+      },
+      <span class="hljs-attr">onReauthAccessToken</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">reauthTokenInformation</span>) </span>{
+      },
+      <span class="hljs-attr">onError</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error</span>) </span>{
+      },
+      <span class="hljs-attr">onAccessTokenHasExpired</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      },
+      <span class="hljs-attr">onReady</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">appState</span>) </span>{
+      }
+  };</code></pre><p><code>onAccessToken</code> and <code>onReauthAccessToken</code> events are triggered using the following object structure</p>
+				<pre><code>    <span class="hljs-built_in">token</span>: <span class="hljs-keyword">string</span>; <span class="hljs-comment">//the token</span>
+    expire: <span class="hljs-built_in">Date</span>; <span class="hljs-comment">// expiration date</span>
+    sid: <span class="hljs-keyword">string</span>; <span class="hljs-comment">// session identifier</span>
+    token_type?: <span class="hljs-keyword">string</span>; <span class="hljs-comment">// token type</span></code></pre><p>Notes:</p>
+				<ul>
+					<li>When the page is loading, the <code>adobeims.initialize()</code> is automatically called and the token events are triggered; the final event is <code>onReady</code></li>
+				</ul>
+				<a href="#determine-imslibjs-version-a-nameversiona" id="determine-imslibjs-version-a-nameversiona" style="color: inherit; text-decoration: none;">
+					<h3>Determine imslib.js version <a name="version"></a></h3>
+				</a>
+				<p>In order to differentiate between imslib v1 and v2, imslib2.js contains a version property <code>version() : string</code> used to determine the imslib version.
+				You can test for imslib2.js as follows</p>
+				<pre><code>  <span class="hljs-keyword">if</span>(adobeIMS.<span class="hljs-keyword">version</span>.startsWith(<span class="hljs-string">'v2-'</span>)) {
+      // imslib <span class="hljs-keyword">version</span> <span class="hljs-number">2</span> <span class="hljs-keyword">is</span> used
+  }</code></pre>
+				<a href="#code-example-a-nameexamplea" id="code-example-a-nameexamplea" style="color: inherit; text-decoration: none;">
+					<h3>Code example <a name="example"></a></h3>
+				</a>
+				<pre><code>  adobeIMSMethods = {
+      <span class="hljs-attr">signIn</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+          adobeIMS.signIn({
+              <span class="hljs-attr">test</span>: <span class="hljs-number">1</span>,
+          }, { <span class="hljs-attr">say</span>: <span class="hljs-string">'hello'</span> });
+      },
+      authorizeToken(token): <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{}
+      getAccessToken: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+          vm.state.token = adobeIMS.getAccessToken();
+      },
+      <span class="hljs-attr">refreshToken</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+          adobeIMS.refreshToken();
+      },
+      <span class="hljs-attr">reAuthenticate</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+          adobeIMS.reAuthenticate({
+          }, <span class="hljs-string">"check"</span>);
+      },
+      <span class="hljs-attr">reAuthenticateForce</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+          adobeIMS.reAuthenticate({
+              <span class="hljs-attr">api</span>: <span class="hljs-string">'apioverride'</span>,
+          }, <span class="hljs-string">"force"</span>);
+      },
+      <span class="hljs-attr">getReauthAccessToken</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+          vm.state.rtoken = adobeIMS.getReauthAccessToken();
+      },
+      <span class="hljs-attr">signOut</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+          adobeIMS.signOut({});
+      },
+      <span class="hljs-attr">getProfile</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+          adobeIMS.getProfile().then(<span class="hljs-function"><span class="hljs-params">profile</span> =&gt;</span> {
+                  vm.state.profile = profile;
+          })
+          .catch( <span class="hljs-function"><span class="hljs-params">ex</span> =&gt;</span> {
+                  vm.state.profile = ex;
+          })
+      },
+      <span class="hljs-attr">signUp</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+          adobeIMS.signUp();
+      },
+      <span class="hljs-attr">validateToken</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+          adobeIMS.validateToken().then(<span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span> {
+          })
+          .catch(<span class="hljs-function"><span class="hljs-params">ex</span> =&gt;</span> {
+          })
+      },
+      <span class="hljs-attr">signInWithSocialProvider</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+          adobeIMS.signInWithSocialProvider(<span class="hljs-string">'google'</span>);
+      }, 
+      <span class="hljs-attr">jumpToken</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-comment">//https://wiki.corp.adobe.com/display/ims/Implicit+Jump+Tokens</span>
+        adobeIMS.jumpToken({
+          <span class="hljs-attr">bearer_token</span>: <span class="hljs-string">'The user access token for the application'</span>,
+          <span class="hljs-attr">target_client_id</span>: <span class="hljs-string">'target_client'</span>,
+        }).then(<span class="hljs-function">(<span class="hljs-params">response: IJumpTokenResponse</span>) =&gt;</span> {
+          Url.location.replace(response.jump)
+        })
+      },
+  };</code></pre>
+				<a href="#demo-application-a-namedemoa" id="demo-application-a-namedemoa" style="color: inherit; text-decoration: none;">
+					<h3>Demo application <a name=demo></a></h3>
+				</a>
+				<p>The react demo application has examples for:</p>
+				<ul>
+					<li>Loading the library via CDN link</li>
+					<li>Loading the library via npm</li>
+					<li>The thin library (which only contains sign in and sign out methods)</li>
+				</ul>
+				<p>Links:</p>
+				<ul>
+					<li>Code: <a href="https://git.corp.adobe.com/IMS/imslib2.js/tree/master/demo-apps/react">https://git.corp.adobe.com/IMS/imslib2.js/tree/master/demo-apps/react</a></li>
+					<li>Hosted: <a href="https://git.corp.adobe.com/pages/IMS/imslib2.js/demo-react-app/index.html">https://git.corp.adobe.com/pages/IMS/imslib2.js/demo-react-app/index.html</a></li>
+				</ul>
+				<p>Running locally:</p>
+				<ul>
+					<li><p>Get the code from git</p>
+					</li>
+					<li><p>Edit the hosts file to contain</p>
+						<pre><code>   127<span class="hljs-selector-class">.0</span><span class="hljs-selector-class">.0</span><span class="hljs-selector-class">.1</span>    <span class="hljs-selector-tag">localhost</span><span class="hljs-selector-class">.corp</span><span class="hljs-selector-class">.adobe</span><span class="hljs-selector-class">.com</span>
+   <span class="hljs-selector-tag">localhost</span><span class="hljs-selector-pseudo">:3000</span> <span class="hljs-selector-tag">localhost</span><span class="hljs-selector-class">.corp</span><span class="hljs-selector-class">.adobe</span><span class="hljs-selector-class">.com</span><span class="hljs-selector-pseudo">:9000</span></code></pre></li>
+					<li><p>Navigate the source directory and run:</p>
+						<ul>
+							<li>npm install</li>
+							<li>npm start</li>
+						</ul>
+					</li>
+					<li><p>Verify if your local route is white listed (imss.corp.adobe.com). The used values for demo app are:
+							<a href="https://localhost%5C.corp%5C.adobe%5C.com">https://localhost\.corp\.adobe\.com</a>
+						<a href="https://localhost%5C.corp%5C.adobe%5C.com:9000/%5CS">https://localhost\.corp\.adobe\.com:9000/\S</a>*</p>
+					</li>
+					<li><p>In case there is a websocket error (when the application starts), please flollow below steps: </p>
+						<ul>
+							<li>edit node_modules/react-dev-utils/webpackHotDevClient.js</li>
+							<li>on line 62, put: protocol: window.location.protocol === &#39;https:&#39; ? &#39;wss&#39; : &#39;ws&#39;,</li>
+						</ul>
+					</li>
+				</ul>
+				<a href="#differences-between-v1-and-v2-methods-a-namev1v2-methodsa" id="differences-between-v1-and-v2-methods-a-namev1v2-methodsa" style="color: inherit; text-decoration: none;">
+					<h3>Differences between v1 and v2: Methods <a name="v1v2-methods"></a></h3>
+				</a>
+				<p>Below table contains the existing methods from the two ims libraries.</p>
+				<table>
+					<thead>
+						<tr>
+							<th>IMSLIB V1</th>
+							<th>IMSLIB V2</th>
+							<th>Comments</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td><code>acquireAccessToken(successFn, errorFn)</code></td>
+							<td><code>refreshToken(externalParameters)</code></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><code>addEventListener(eventType, callback)</code></td>
+							<td></td>
+							<td>see subscribeToimsInstance()</td>
+						</tr>
+						<tr>
+							<td><code>decodeAccessToken(tokenString)</code></td>
+							<td></td>
+							<td>Deprecated. Info is provided on <code>onAccessToken</code></td>
+						</tr>
+						<tr>
+							<td><code>getAccessToken(isReAuthenticationopt, client_idopt, scopeopt)</code></td>
+							<td><code>getAccessToken() &amp;&amp; getReauthAccessToken()</code></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><code>getAccessTokenInfo(isReAuthenticationopt, client_idopt, scopeopt)</code></td>
+							<td></td>
+							<td>Deprecated. Info is provided on <code>onAccessToken</code></td>
+						</tr>
+						<tr>
+							<td><code>getAccessTokenSessionStorageKey(isReAuthenticationopt, client_idopt, scopeopt)</code></td>
+							<td></td>
+							<td>Deprecated</td>
+						</tr>
+						<tr>
+							<td><code>getAdobeIdApiParametersForApi(apinon-null)</code></td>
+							<td></td>
+							<td>Available in <code>adobeid</code></td>
+						</tr>
+						<tr>
+							<td><code>getClientID(apiopt, extraParamsopt)</code></td>
+							<td></td>
+							<td>Available in <code>adobeid</code></td>
+						</tr>
+						<tr>
+							<td><code>getContextFromRedirectForAccessToken(access_tokennon-null)</code></td>
+							<td>triggered by <code>onReady(context);</code></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><code>getKeyForAccessToken(access_tokennon-null)</code></td>
+							<td></td>
+							<td>Deprecated</td>
+						</tr>
+						<tr>
+							<td><code>getLocale()</code></td>
+							<td></td>
+							<td>Available in <code>adobeid</code></td>
+						</tr>
+						<tr>
+							<td><code>getReleaseFlags(doneFn, errorFnnullable)</code></td>
+							<td></td>
+							<td>Available in adobeIMS</td>
+						</tr>
+						<tr>
+							<td><code>getScope(apiopt, extraParamsopt)</code></td>
+							<td></td>
+							<td>Available in <code>adobeid</code></td>
+						</tr>
+						<tr>
+							<td><code>getState()</code></td>
+							<td></td>
+							<td>Available in <code>adobeid</code></td>
+						</tr>
+						<tr>
+							<td><code>getTransitoryAuthorizationCode(params, successCallback, errorCallbacknullable)</code></td>
+							<td></td>
+							<td>Available in adobeIMS</td>
+						</tr>
+						<tr>
+							<td><code>getUserPictureURL()</code></td>
+							<td><code>avatarUrl(userId: string): string</code></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><code>getUserProfile()</code></td>
+							<td><code>getProfile(): Promise</code></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><code>hasTokenButItHasExpired(isReAuthenticationopt, client_idopt, scopeopt)</code></td>
+							<td></td>
+							<td>Token is automatically refreshed</td>
+						</tr>
+						<tr>
+							<td><code>isKnownClientID(client_idnon-null)</code></td>
+							<td></td>
+							<td>Deprecated, see section for multiple client support</td>
+						</tr>
+						<tr>
+							<td><code>isMandatorySignIn()</code></td>
+							<td></td>
+							<td>Deprecated</td>
+						</tr>
+						<tr>
+							<td><code>isModal()</code></td>
+							<td></td>
+							<td>Deprecated</td>
+						</tr>
+						<tr>
+							<td><code>isReady()</code></td>
+							<td></td>
+							<td>Deprecated, for integration with 3rd party libs please take look <a href="#adobe-launch">here</a></td>
+						</tr>
+						<tr>
+							<td><code>isReAuthentication(api_parametersopt)</code></td>
+							<td></td>
+							<td>Deprecated</td>
+						</tr>
+						<tr>
+							<td><code>isRefreshSSOCookiesEnabled()</code></td>
+							<td></td>
+							<td>Deprecated</td>
+						</tr>
+						<tr>
+							<td><code>isReleaseFlagActive(flag)</code></td>
+							<td><code>getReleaseFlags(): Promise</code></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><code>isSignedInUser(isReAuthenticationopt, client_idopt, scopeopt)</code></td>
+							<td><code>isSignedInUser(): boolean</code></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><code>isSingleLogOutEnabled()</code></td>
+							<td></td>
+							<td>SLO is enabled on all clients</td>
+						</tr>
+						<tr>
+							<td><code>listSocialProviders(successCallback, errorCallbackopt)</code></td>
+							<td><code>listSocialProviders(): []</code></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><code>loadFromStorage()</code></td>
+							<td></td>
+							<td>Deprecated</td>
+						</tr>
+						<tr>
+							<td><code>makeApiCall(apinon-null, versionopt, paramsnullable, fnToCall)</code></td>
+							<td></td>
+							<td>Deprecated</td>
+						</tr>
+						<tr>
+							<td><code>matchesTheRequiredScope(scopeToValidatenon-null)</code></td>
+							<td></td>
+							<td>Deprecated</td>
+						</tr>
+						<tr>
+							<td><code>reAuthenticate(api_parametersopt, contexttobepassedonredirectopt)</code></td>
+							<td><code>reAuthenticate(requestedParameters?: IDictionary, reauth?: IReauth, contextToBePassedOnRedirect?: any): void</code></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><code>setProfile(profile)</code></td>
+							<td></td>
+							<td>Deprecated</td>
+						</tr>
+						<tr>
+							<td><code>setStandaloneToken(newToken)</code></td>
+							<td><code>setStandaloneToken(newToken)</code></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><code>shouldAcceptTheToken(access_tokennon-null, client_idnon-null, scopenon-null, user_idnon-null, isValidnon-null, isReAuthenticationnon-null)</code></td>
+							<td></td>
+							<td>Deprecated</td>
+						</tr>
+						<tr>
+							<td><code>signIn(api_parametersopt, contexttobepassedonredirectopt)</code></td>
+							<td><code>signIn(externalParameters?: IDictionary, contextToBePassedOnRedirect?: any): void</code></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><code>signInBasedOnSingleSignOnSSO(fnContinuation)</code></td>
+							<td></td>
+							<td>Deprecated</td>
+						</tr>
+						<tr>
+							<td><code>signInWithSocialProvider(providerName, parametersopt)</code></td>
+							<td><code>signInWithSocialProvider(providerName: any, externalParameters?: IDictionary, contextToBePassedOnRedirect?: any): void</code></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><code>signOut(api_parametersopt)</code></td>
+							<td><code>signOut(externalParameters?: IDictionary)</code></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><code>signUp(api_parametersopt, contexttobepassedonredirectopt)</code></td>
+							<td><code>signUp(requestedParameters?: IDictionary, contextToBePassedOnRedirect?: any)</code></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><code>sunbreakHack(scopenon-null) → (non-null) {Scope}</code></td>
+							<td></td>
+							<td>Deprecated (obviously)</td>
+						</tr>
+						<tr>
+							<td><code>switchToModalMode()</code></td>
+							<td></td>
+							<td>Switching is no longer supported</td>
+						</tr>
+						<tr>
+							<td><code>switchToRedirectMode()</code></td>
+							<td></td>
+							<td>Switching is no longer supported</td>
+						</tr>
+						<tr>
+							<td><code>testAccessTokenIsStillValid(access_token, fnToCallAtTheEnd)</code></td>
+							<td><code>validateToken: Promise&lt;boolean&gt;</code></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><code>testSingleLogOutSLO(fnContinuation)</code></td>
+							<td></td>
+							<td>Deprecated</td>
+						</tr>
+						<tr>
+							<td><code>toggleLogging(mode)</code></td>
+							<td><code>enableLogging()</code>, <code>disableLogging()</code></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><code>updateRedirectUriForReAuthentication(redirect_urinullable, api_parametersnullable)</code></td>
+							<td></td>
+							<td>Deprecated</td>
+						</tr>
+						<tr>
+							<td><code>validateSSOCookieLifetime(access_token, fnContinuation)</code></td>
+							<td></td>
+							<td>Deprecated</td>
+						</tr>
+						<tr>
+							<td><code>signInWithSocialProvider(providerName: any, externalParameters?: IDictionary, contextToBePassedOnRedirect?: any): void</code></td>
+							<td><code>refreshToken(externalParameters?: IDictionary): Promise</code></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><code>jumpToken(jumpTokenRequest, externalParameters)</code></td>
+							<td></td>
+						</tr>
+				</tbody></table>
+				<a href="#differences-between-v1-and-v2-events-a-namev1v2-eventsa" id="differences-between-v1-and-v2-events-a-namev1v2-eventsa" style="color: inherit; text-decoration: none;">
+					<h3>Differences between v1 and v2: Events <a name="v1v2-events"></a></h3>
+				</a>
+				<p>Below table contains the existing events/properties from the two ims libraries.</p>
+				<table>
+					<thead>
+						<tr>
+							<th>IMSLIB V1</th>
+							<th>IMSLIB V2</th>
+							<th>Comments</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td><code>onProfile</code></td>
+							<td><code>onProfile</code></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><code>onAccessToken</code></td>
+							<td><code>onAccessToken</code></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><code>onReauthAccessToken</code></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><code>onAccessTokenHasExpired</code></td>
+							<td><code>onAccessTokenHasExpired</code></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><code>onError</code></td>
+							<td><code>onError</code></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><code>onProfile</code></td>
+							<td><code>onProfile</code></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><code>api_parameters</code></td>
+							<td><code>api_parameters</code></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><code>client_id</code></td>
+							<td><code>client_id</code></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><code>debug</code></td>
+							<td><code>logsEnabled</code></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><code>is_mandatory_sign_in</code></td>
+							<td></td>
+							<td>Deprecated</td>
+						</tr>
+						<tr>
+							<td><code>locale</code></td>
+							<td><code>locale</code></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><code>redirect_uri</code></td>
+							<td><code>redirect_uri</code></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><code>openidCompatible</code></td>
+							<td></td>
+							<td>TBD</td>
+						</tr>
+						<tr>
+							<td><code>scope</code></td>
+							<td><code>scope</code></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><code>uses_modal_mode</code></td>
+							<td><code>modalMode</code></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><code>uses_redirect_mode</code></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><code>standalone</code></td>
+							<td><code>standalone</code></td>
+							<td>contains the default token at the moment of initialization.</td>
+						</tr>
+						<tr>
+							<td><code>ijt</code></td>
+							<td></td>
+							<td><code>ijt</code></td>
+						</tr>
+						<tr>
+							<td><code>preferred_storage</code></td>
+							<td><code>useLocalStorage</code></td>
+							<td>Default is session storage</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><code>autoValidateToken</code></td>
+							<td>optional property</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><code>environment</code></td>
+							<td>Default is prod. possible values are stg1 and prod</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><code>analytics: {appCode: string, appVersion: string}</code></td>
+							<td>Is added automatically to state object</td>
+						</tr>
+				</tbody></table>
+				<a href="#autovalidatetoken" id="autovalidatetoken" style="color: inherit; text-decoration: none;">
+					<h4>AutoValidateToken</h4>
+				</a>
+				<p>In the previous IMSLib.js version we automatically checked whether the cached access token is still valid by doing a /validate_token call. This behavior is no longer enabled by default. In order to enable this behavior you will need to set the <code>adobeid.autoValidateToken</code> property to true.</p>
+				<a href="#analytics" id="analytics" style="color: inherit; text-decoration: none;">
+					<h4>Analytics</h4>
+				</a>
+				<p>In order to send the <code>ac</code> and <code>av</code> values in the state parameter used by Adobe Analytics you should no longer override the state parameter, but rather use the <a href="https://git.corp.adobe.com/pages/IMS/imslib2.js/classes/_adobe_id_analyticsparameters_.analyticsparameters.html"><code>adobeid.analytics</code> object</a>.</p>
+				<a href="#state" id="state" style="color: inherit; text-decoration: none;">
+					<h4>State</h4>
+				</a>
+				<p>imslib.js append a context parameter to the redirect as parameter. In contrast, imslib2.js packs the context into the state parameters (which then becomes part of the IMS token). </p>
+				<a href="#3rd-party-library-integration-a-nameadobe-launcha" id="3rd-party-library-integration-a-nameadobe-launcha" style="color: inherit; text-decoration: none;">
+					<h3>3rd party library integration <a name="adobe-launch"></a></h3>
+				</a>
+				<p>There are use cases where other libraries such as adobe-launch need the AdobeIMS instance from IMSLib in order to know whether or not a user is signed in and retrieve user profile data. In order to make the AdobeIMS instance available to the other library we will cover the following scenarios.</p>
+				<ol>
+					<li><p>Analytics library is created BEFORE any AdobeIMSLib instance</p>
+						<p> The logic is that the analytics library will subscribe to the &#39;onImsLibInstance&#39; dom event name;</p>
+						<pre><code>   subscribeToimsInstance = (): <span class="hljs-function"><span class="hljs-params">void</span> =&gt;</span> {
+       <span class="hljs-built_in">window</span>.addEventListener( <span class="hljs-string">'onImsLibInstance'</span>,  <span class="hljs-keyword">this</span>.onImsInstance, <span class="hljs-literal">false</span> );
+   }
+   onImsInstance  = ( evt: <span class="hljs-built_in">any</span> ): <span class="hljs-function"><span class="hljs-params">void</span> =&gt;</span> {
+       <span class="hljs-keyword">this</span>.imsInstances.push( evt.detail );
+   }</code></pre></li>
+					<li><p>Analytics library is created AFTER any AdobeIMSLib instance
+						In this case, the analytics library should &quot;ask&quot; for any existent imsLib instances;</p>
+						<pre><code>   askForImsInstance = <span class="hljs-literal">()</span>:<span class="hljs-function"> <span class="hljs-params">void</span> =&gt;</span> {
+     const evt = document.create<span class="hljs-constructor">Event( 'CustomEvent' )</span>;
+     evt.init<span class="hljs-constructor">CustomEvent( '<span class="hljs-params">getImsLibInstance</span>, <span class="hljs-params">false</span>, <span class="hljs-params">false</span>, <span class="hljs-params">null</span> )</span>;
+     window.dispatch<span class="hljs-constructor">Event( <span class="hljs-params">evt</span> )</span>;
+   }</code></pre><p> Any existent imsLib instance is triggered by using the first approach (using onImsLibInstance event name)</p>
+						<p> <em>Note</em>: </p>
+						<ul>
+							<li>In order to prevent multiple ims lib instances, the analytics library must check against imsInstance.adobeId.client_id</li>
+							<li>dom events will contain only AdobeIMS instances which already fired the onReady event.</li>
+						</ul>
+					</li>
+				</ol>
+				<a href="#standalone-mode-initialize-the-library-with-an-existing-token-a-namestandalonea" id="standalone-mode-initialize-the-library-with-an-existing-token-a-namestandalonea" style="color: inherit; text-decoration: none;">
+					<h3>Standalone mode (initialize the library with an existing token) <a name="standalone"></a></h3>
+				</a>
+				<p>The library has the ability to use a default token at the moment of initialization
+				This can help developers to test the applications by using a specific token.</p>
+				<p>standalone token structure is: </p>
+				<pre><code><span class="hljs-attribute">adobeid</span>: {
+  ...
+  <span class="hljs-attribute">standalone</span>: {
+    <span class="hljs-attribute">token</span>: <span class="hljs-string">'your token'</span>,
+    <span class="hljs-attribute">expirems</span>: token expiration in ms
+  }
+}
+</code></pre>
+				<a href="#ijt-mode-initialize-the-library-with-an-existing-ijt-token-a-nameijttokena" id="ijt-mode-initialize-the-library-with-an-existing-ijt-token-a-nameijttokena" style="color: inherit; text-decoration: none;">
+					<h3>IJT mode (initialize the library with an existing ijt token) <a name="ijttoken"></a></h3>
+				</a>
+				<p>The ijt flow is used to create a new access token based on a ijt token; The developers must implement the following steps: </p>
+				<ul>
+					<li>The aplication have o read the ijt from the url</li>
+					<li>Set the ijt value into adobeid: <code>adobeIMS.adobeIdData.ijt = &#39;ijtValue&#39;</code></li>
+					<li>Trigger the adobeIMS.initialize() method</li>
+				</ul>
+				<a href="#modal-mode" id="modal-mode" style="color: inherit; text-decoration: none;">
+					<h3>Modal Mode</h3>
+				</a>
+				<p>Modal mode is used for opening SUSI (the Sign Up Sign In page) in a new modal window.</p>
+				<p>In order to open SUSI in a new window you will need to set the <code>adobeid.modalMode</code> to true. This will open SUSI in a new modal window in order to login the user.
+				After receving the access token in te modal window, it will send it to the parent window and automatically close the modal.</p>
+				<p>We also provide a way to configure the modal window by setting the <code>adobeid.modalSettings</code> property using the <a href="https://git.corp.adobe.com/pages/IMS/imslib2.js/classes/_adobe_ims_sign_in_popupsettings_.popupsettings.html">PopupSettings class</a>.</p>
+				<p>Notes:</p>
+				<ul>
+					<li>IMSLib2 does not support switching from modal mode to redirect mode.</li>
+				</ul>
+				<a href="#developer-resources-a-namecontributora" id="developer-resources-a-namecontributora" style="color: inherit; text-decoration: none;">
+					<h1>Developer resources <a name=“contributor”></a></h1>
+				</a>
+				<a href="#install-dependencies" id="install-dependencies" style="color: inherit; text-decoration: none;">
+					<h2>Install dependencies</h2>
+				</a>
+				<p>The first step is the instalation of required packages. For this,  the following comand should be used: </p>
+				<pre><code><span class="hljs-built_in">npm</span> ci</code></pre>
+				<a href="#code-lint" id="code-lint" style="color: inherit; text-decoration: none;">
+					<h2>Code lint</h2>
+				</a>
+				<pre><code>npm <span class="hljs-keyword">run</span><span class="bash"> eslint</span></code></pre>
+				<a href="#compiling-all-sources" id="compiling-all-sources" style="color: inherit; text-decoration: none;">
+					<h2>Compiling all sources</h2>
+				</a>
+				<pre><code>npm <span class="hljs-keyword">run</span><span class="bash"> build</span></code></pre><p>Building the library for different environments: </p>
+				<pre><code>npm <span class="hljs-keyword">run</span><span class="bash"> build:stg1</span>
+npm <span class="hljs-keyword">run</span><span class="bash"> build:prod</span></code></pre><p>Additional parameters can be passed in order to controll the output bundle</p>
+				<pre><code>npm <span class="hljs-built_in">run</span> build -- --<span class="hljs-built_in">config</span>- env=stg1+polyfill=<span class="hljs-literal">true</span>+thin=<span class="hljs-literal">true</span></code></pre><p><em>Note</em>: Default values for above parameters are:</p>
+				<pre><code>  <span class="hljs-attribute">env</span> = <span class="hljs-string">'stg1'</span>
+  polyfill = <span class="hljs-literal">false</span>
+  thin=<span class="hljs-literal">false</span></code></pre>
+				<a href="#unit-testing" id="unit-testing" style="color: inherit; text-decoration: none;">
+					<h2>Unit Testing</h2>
+				</a>
+				<pre><code>npm <span class="hljs-keyword">run</span><span class="bash"> unittest</span></code></pre><p>For debugging, update the args attribute for &#39;.vscode\launch.json&#39; to <code>&quot;args&quot;: [&quot;--config=./jasmine_unit.json&quot;, &quot;${file}&quot;],</code> </p>
+				<a href="#functional-testing" id="functional-testing" style="color: inherit; text-decoration: none;">
+					<h2>Functional testing</h2>
+				</a>
+				<p>Test plan, <a href="https://wiki.corp.adobe.com/display/ims/IMS+v2+-+Test+plan">https://wiki.corp.adobe.com/display/ims/IMS+v2+-+Test+plan</a></p>
+				<pre><code>npm <span class="hljs-keyword">run</span><span class="bash"> functionaltest</span></code></pre><p>For debugging, update the args attribute for &#39;.vscode\launch.json&#39; to <code>&quot;args&quot;: [&quot;--config=./jasmine_unit.json&quot;, &quot;${file}&quot;],</code> </p>
+				<a href="#integration-testing" id="integration-testing" style="color: inherit; text-decoration: none;">
+					<h2>Integration testing</h2>
+				</a>
+				<p>  The automated tests are located under /tests/automation directory</p>
+				<p>  Install necessary dependencies: <code>npm ci</code>  (from the automation directory)</p>
+				<p>  Start the server by executing: <code>http-server -S -p 9000</code></p>
+				<p>  Run the integration tests: <code>npm test</code></p>
+				<p>  NOTE: Integration tests can be started by using:
+				<code>npm run start-automatedtest</code> (from main imslib directory)</p>
+				<p>  Testing only against stg1
+				<code>npm run start-automatedtest:stage</code></p>
+				<p>  Testing only against prod
+				<code>npm run start-automatedtest:prod</code></p>
+				<a href="#coverage" id="coverage" style="color: inherit; text-decoration: none;">
+					<h2>Coverage</h2>
+				</a>
+				<p>To generate the coverage report for unit tests (output directory is coverage):</p>
+				<pre><code>  npm <span class="hljs-keyword">run</span><span class="bash"> coverage</span></code></pre><p>To generate the coverage report for unit tests for functional tests (output directory is coverage-functional)</p>
+				<pre><code>  npm <span class="hljs-keyword">run</span><span class="bash"> coverage-functional</span></code></pre>
+				<a href="#dependencies" id="dependencies" style="color: inherit; text-decoration: none;">
+					<h2>Dependencies</h2>
+				</a>
+				<p>Installing a new package as a dev dependency</p>
+				<pre><code>npm install &lt;<span class="hljs-keyword">new</span><span class="hljs-type">_dependency</span>&gt; --save-dev</code></pre><p>Installing a new package as a dependency</p>
+				<pre><code>npm install &lt;<span class="hljs-keyword">new</span><span class="hljs-type">_dependency</span>&gt; --save</code></pre>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_id_adobeiddata_.html">&quot;adobe-<wbr>id/<wbr>Adobe<wbr>IdData&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_id_adobeidthindata_.html">&quot;adobe-<wbr>id/<wbr>Adobe<wbr>IdThin<wbr>Data&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_id_analyticsparameters_.html">&quot;adobe-<wbr>id/<wbr>Analytics<wbr>Parameters&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_id_iadobehandlers_.html">&quot;adobe-<wbr>id/IAdobe<wbr>Handlers&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_id_iadobeiddata_.html">&quot;adobe-<wbr>id/IAdobe<wbr>IdData&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_id_iadobeidthindata_.html">&quot;adobe-<wbr>id/IAdobe<wbr>IdThin<wbr>Data&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_id_ianalytics_.html">&quot;adobe-<wbr>id/IAnalytics&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_id_icodechallenge_.html">&quot;adobe-<wbr>id/ICode<wbr>Challenge&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_id_ienvironment_.html">&quot;adobe-<wbr>id/IEnvironment&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_id_ierrortype_.html">&quot;adobe-<wbr>id/IError<wbr>Type&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_id_custom_types_customthintypes_.html">&quot;adobe-<wbr>id/custom-<wbr>types/<wbr>Custom<wbr>Thin<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_id_custom_types_customtypes_.html">&quot;adobe-<wbr>id/custom-<wbr>types/<wbr>Custom<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_ims_adobeims_.html">&quot;adobe-<wbr>ims/<wbr>AdobeIMS&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_ims_adobeimspolyfill_.html">&quot;adobe-<wbr>ims/<wbr>AdobeIMSPolyfill&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_ims_adobeimsthin_.html">&quot;adobe-<wbr>ims/<wbr>AdobeIMSThin&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_ims_adobeimsthinpolyfill_.html">&quot;adobe-<wbr>ims/<wbr>AdobeIMSThin<wbr>Polyfill&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_ims_tokenprofileresponse_.html">&quot;adobe-<wbr>ims/<wbr>Token<wbr>Profile<wbr>Response&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_ims_environment_checktokenendpoint_.html">&quot;adobe-<wbr>ims/environment/<wbr>Check<wbr>Token<wbr>Endpoint&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_ims_environment_environment_.html">&quot;adobe-<wbr>ims/environment/<wbr>Environment&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_ims_facade_iadobeims_.html">&quot;adobe-<wbr>ims/facade/IAdobeIMS&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_ims_facade_iadobeimsthin_.html">&quot;adobe-<wbr>ims/facade/IAdobeIMSThin&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_ims_facade_igranttypes_.html">&quot;adobe-<wbr>ims/facade/IGrant<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_ims_facade_ijumptokenrequest_.html">&quot;adobe-<wbr>ims/facade/IJump<wbr>Token<wbr>Request&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_ims_facade_ijumptokenresponse_.html">&quot;adobe-<wbr>ims/facade/IJump<wbr>Token<wbr>Response&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_ims_facade_ireauth_.html">&quot;adobe-<wbr>ims/facade/IReauth&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_ims_facade_isocialheadlesssignin_.html">&quot;adobe-<wbr>ims/facade/ISocial<wbr>Headless<wbr>Sign<wbr>In&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_ims_facade_itokenservicerequest_.html">&quot;adobe-<wbr>ims/facade/IToken<wbr>Service<wbr>Request&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_ims_facade_itransitoryauthorizationrequest_.html">&quot;adobe-<wbr>ims/facade/ITransitory<wbr>Authorization<wbr>Request&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_ims_facade_itransitoryauthorizationresponse_.html">&quot;adobe-<wbr>ims/facade/ITransitory<wbr>Authorization<wbr>Response&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_ims_pkce_code_challenge_.html">&quot;adobe-<wbr>ims/pkce/code-<wbr>challenge&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_ims_sign_in_basesigninservice_.html">&quot;adobe-<wbr>ims/sign-<wbr>in/<wbr>Base<wbr>Sign<wbr>InService&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_ims_sign_in_isigninservice_.html">&quot;adobe-<wbr>ims/sign-<wbr>in/ISign<wbr>InService&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_ims_sign_in_popupopener_.html">&quot;adobe-<wbr>ims/sign-<wbr>in/<wbr>Popup<wbr>Opener&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_ims_sign_in_popupsettings_.html">&quot;adobe-<wbr>ims/sign-<wbr>in/<wbr>Popup<wbr>Settings&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_ims_sign_in_signinmodalservice_.html">&quot;adobe-<wbr>ims/sign-<wbr>in/<wbr>Sign<wbr>InModal<wbr>Service&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_ims_sign_in_signinservice_.html">&quot;adobe-<wbr>ims/sign-<wbr>in/<wbr>Sign<wbr>InService&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_ims_sign_out_signoutservice_.html">&quot;adobe-<wbr>ims/sign-<wbr>out/<wbr>Sign<wbr>Out<wbr>Service&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_ims_token_auto_refresh_itokenautorefreshparams_.html">&quot;adobe-<wbr>ims/token-<wbr>auto-<wbr>refresh/IToken<wbr>Auto<wbr>Refresh<wbr>Params&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_adobe_ims_token_auto_refresh_tokenautorefresh_.html">&quot;adobe-<wbr>ims/token-<wbr>auto-<wbr>refresh/<wbr>Token<wbr>Auto<wbr>Refresh&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_debounce_debouncer_.html">&quot;debounce/<wbr>Debouncer&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_facade_idictionary_.html">&quot;facade/IDictionary&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_util_base32util_.html">&quot;util/<wbr>Base32<wbr>Util&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_util_objectutil_.html">&quot;util/<wbr>Object<wbr>Util&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_util_scopeutil_.html">&quot;util/<wbr>Scope<wbr>Util&quot;</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

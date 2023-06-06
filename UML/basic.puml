@@ -1,0 +1,27 @@
+@startuml
+actor User as u
+entity "Web app" as b
+entity IMSLib as l
+boundary "IMSLib CDN" as cdn
+boundary IMS as i
+boundary API as api
+
+u -> b: load app
+b -> b: define window.adobeid\n(IMSLib configuration)
+b -> cdn: load imslib
+cdn --> b: loaded
+b --> l: script loaded
+activate l
+l -> l: initialize
+l -> i: /check/v6/token
+i --> l: token and profile
+l --> l: store token and profile\nin session storage
+l --> l: setup auto-refresh
+l --> b: onReady()
+b -> l: getProfile:Promise<profile>
+l --> b: return profile from storage
+b --> u: hello {name}
+b -> l: getAccessToken:TokenInfo
+l --> b: return access token from storage
+b -> api: POST | Authorization: Bearer {accessToken}
+@enduml

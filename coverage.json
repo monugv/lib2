@@ -1,0 +1,6 @@
+report: {
+	type: 'cobertura',
+	options: {
+		dir: 'bin/coverage/cobertura'
+	}
+}

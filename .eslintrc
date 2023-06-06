@@ -1,0 +1,41 @@
+{
+  
+  "rules": {
+    "@typescript-eslint/camelcase": ["error", 
+      { 
+        "properties": "never", 
+        "allow": ["api_parameters","client_id", "uses_redirect_mode", "uses_modal_mode", "uses_single_log_out",  
+          "uses_slo", "__services_endpoint_root", "HTTP_Errors", "from_ims_hash", "from_ims",
+          "__tracking_enabled", "__login_endpoint_root", "__log_enabled", "redirect_uri", "access_token", "user_id", 
+          "expires_in", "created_at", "expires_at_str", "expires_at", "token_type"
+           ] } 
+    ],
+    "@typescript-eslint/interface-name-prefix" : [
+      "error", {
+        "prefixWithI": "always"
+
+      }
+    ],
+    "no-undef": "error",
+    "no-prototype-builtins": "warn",
+    "indent": ["error", 4],
+    "object-curly-spacing": ["error", "always"],
+    "space-before-blocks": ["error", { "functions": "always", "keywords": "always", "classes": "always" }],
+    "space-before-function-paren": [2, { "anonymous": "always", "named": "always" }],
+    "comma-spacing": ["error", { "before": false, "after": true }],
+    "space-in-parens": ["error", "always"]
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins" : [
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"],
+  "env": {
+    "jasmine": true,
+    "browser": true,
+    "es6": true
+  }
+}

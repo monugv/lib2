@@ -1,0 +1,77 @@
+#!/usr/bin/env groovy
+/*************************************************************************
+ * ADOBE CONFIDENTIAL
+ * ___________________
+ *
+ *  Copyright 2020 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by all applicable intellectual property
+ * laws, including trade secret and copyright laws.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ **************************************************************************/
+
+library("jidokaSharedLib@${'v5.7.0'}")
+
+podTemplate(
+    cloud: 'imslib2-k8s-cloud',
+    yaml: '''\
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    service: tempest
+spec:
+  securityContext:
+    fsGroup: 2000
+    runAsUser: 1000
+    runAsNonRoot: true
+  imagePullSecrets:
+   - name: docker-tide-release
+   - name: docker-eps-release
+  containers:
+  - name: jnlp
+    image: docker-eps-release.dr.corp.adobe.com/jenkins/jnlp-slave
+    resources:
+      limits:
+        cpu: 2
+        memory: 4Gi
+      requests:
+        cpu: 1
+        memory: 2Gi
+  - name: jidoka
+    image: docker-tide-release.dr.corp.adobe.com/imslib2-jidoka:2020_03_03_20_13
+    command:
+    - cat
+    tty: true
+    env:
+    - name: HOME
+      value: /home/jenkins/agent
+    resources:
+      limits:
+        cpu: 4
+        memory: 8Gi
+      requests:
+        cpu: 2
+        memory: 4Gi
+'''
+ ) {
+    dropinAnalysisPipeline {
+        defaultKubernetesContainer = 'jidoka'
+        defaultGithubProject = 'https://git.corp.adobe.com/ims/imslib2.js'
+        defaultCredentialGithubUserToken = 'imsjdk_github_username_and_api_token'
+        defaultPropertiesFilePath = '.jidoka/jenkins/analysis-pipeline.properties'
+        extraPlugins = ['kubernetes']
+
+        analysis = dropinStage {
+            unitResults = 'jidoka-unit'
+            integrationResults = 'jidoka-integration'
+        }
+    }
+ }

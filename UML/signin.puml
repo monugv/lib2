@@ -1,0 +1,46 @@
+@startuml
+actor User as u
+entity "Web app" as b
+entity IMSLib as l
+boundary "IMSLib CDN" as cdn
+boundary IMS as i
+boundary SUSI as s
+
+u -> b: load app
+b -> b: define window.adobeid\n(IMSLib configuration)
+b -> cdn: load imslib
+cdn --> b: loaded
+b --> l: script loaded
+activate l
+l -> l: initialize
+l -> i: /check/v6/token
+i --> l: not authenticated
+l --> b: onReady()
+b -> l: get profile
+l --> b: no profile
+b --> u: sign in button
+u -> b: sign in
+b -> l: signIn()
+l -> i: /authorize
+deactivate l
+i --> s: redirect
+u -> s: sign in
+s --> b: redirect
+b -> b: define window.adobeid\n(IMSLib configuration)
+b -> cdn: load imslib
+cdn --> b: loaded
+b --> l: script loaded
+activate l
+l -> l: initialize
+l -> l: read AT from \nredirect fragment
+l --> l: store token\nin session storage
+l --> l: setup auto-refresh
+l --> b: onReady()
+b -> l: getProfile:Promise<profile>
+l -> i: /profile
+i --> l: profile
+l -->l: store profile\nin session storage
+l --> b: return profile
+b --> u: hello {name}
+
+@enduml

@@ -1,0 +1,17 @@
+{
+  "name": "@identity/imslib",
+  "version": "0.1.0",
+  "description": "library used for integrating with IMS/SUSI",
+  "publishConfig": {
+    "registry": "https://artifactory.corp.adobe.com:443/artifactory/api/npm/npm-adobe-release"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Adobe",
+  "license": "ISC",
+  "dependencies": {
+    "ts-polyfill": "^3.8.2"
+  }
+}

@@ -1,0 +1,34 @@
+@startuml
+actor User as u
+entity "Embedded web" as b
+entity IMSLib as l
+boundary Backend as be
+boundary "Desktop app" as a
+boundary "IMSLib CDN" as cdn
+boundary IMS as i
+boundary API as api
+
+u -> a: action that loads\nembedded web page
+a -> be: get IJT
+be -> i: generate IJT
+i --> be: IJT
+be --> a: IJT
+a -> b: load app\nIJT in fragment
+b -> b: define window.adobeid\n(IMSLib configuration)
+b -> cdn: load imslib
+cdn --> b: loaded
+b --> l: script loaded
+activate l
+l -> l: initialize
+l -> i: consume IJT
+i --> l: token
+l --> l: store token\nin session storage
+l --> l: setup auto-refresh
+l --> b: onReady()
+b -> l: getProfile:Promise<profile>
+l -> i: /profile
+i --> l: profile
+l -->l: store profile\nin session storage
+l --> b: return profile
+b --> u: hello {name}
+@enduml

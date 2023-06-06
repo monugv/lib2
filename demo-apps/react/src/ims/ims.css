@@ -1,0 +1,27 @@
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box .environment {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  width: 25%;
+}
+.column {
+  flex-direction: column;
+}
+
+.row-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+}

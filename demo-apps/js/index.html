@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Manual tests for imslib.js</title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="toolbar">
+        <form action="">
+            <label>IMS environment <select id="ims-env" name="env"></select></label>
+            <span class="small">(reloads the page)</span>
+        </form>
+    </div>
+    <h1 class="center">tests for imslib.js</h1>
+    <h2 class="center">Full web redirect</h2>
+
+
+
+    <div ng-app="imsApp" ng-controller="imsController">
+
+        Client: <input type="text" ng-model="state.adobe.client_id"><br>
+        <br>
+        <div>
+
+            Token: {{state.token}}
+        </div>
+
+        <div>
+            Reauth Token: {{state.rtoken}}
+        </div>
+
+        <div>
+            Client: {{state.adobe.client_id}}
+        </div>
+        <div>
+            Profile: {{state.profile}}
+        </div>
+
+        <div>
+            on ready state: {{state.ready}}
+        </div>
+        <div ng-if="state.avatarUrl">
+            <img src="{{state.avatarUrl}}" alt="avatar" />
+        </div>
+
+
+        <button ng-click="func.signIn()">Sign In</button>
+        <button ng-click="func.signInPKCE()">Sign In PKCE</button>
+        
+        <button ng-click="func.getAccessToken()">Get Access Token</button>
+        <button ng-click="func.refreshToken()">Refresh Token</button>
+        <button ng-click="func.reAuthenticate()">Reauth - check </button>
+        <button ng-click="func.reAuthenticateForce()">Reauth - force</button>
+        <button ng-click="func.getReauthAccessToken()">getReauthAccessToken</button>
+        <button ng-click="func.signOut()">Sign Out</button>
+        <button ng-click="func.getProfile()">get profile</button>
+        <button ng-click="func.signUp()">signUp</button>
+        <button ng-click="func.validateToken()">validateToken</button>
+        <button ng-click="func.getTransitoryAuthorizationCode()">getTransitoryAuthorizationCode</button>
+        <button ng-click="func.jumpToken()">jumpToken</button>
+        <button ng-click="func.signInWithSocialProvider()">signInWithSocialProvider</button>
+
+        
+
+    </div>
+
+    <script src="jquery.min.js"></script>
+
+    <script src="/lib/angular.min.js"></script>
+
+    <script>
+        var client_id = 'IMSLibJSTestPublicClient';//IMSLibJSTestClient';
+        // var client_id = 'IMSLibJSTestClient';//IMSLibJSTestClient';
+
+        var app = angular.module('imsApp', []);
+        app.controller('imsController', function ($scope) {
+            var vm = $scope;
+
+            window.adobeid = {
+                modalMode: false,
+                client_id,
+                scope: 'AdobeID,openid',
+                locale: 'en_US',
+                environment: 'stg1',
+                onAccessToken: function (token) {
+                    vm.state.token = token;
+                    vm.$apply(function () {
+                        vm.state.token = token || '';
+                    });
+                },
+                onAccessTokenHasExpired: function() {
+                } ,
+                onReauthAccessToken: function (val) {
+                    vm.$apply(function () {
+                        vm.state.rtoken = val || '';
+                    });
+                },
+                onError: function (val) {
+                    vm.$apply(function () {
+                        vm.state.error = val || {};
+                    });
+                },
+                onReady: function (val) {
+                    vm.$apply(function () {
+                        vm.state.ready = val || {};
+                    });
+                }
+            };
+
+
+
+            vm.state = {
+                adobe: {
+                    client_id,
+                },
+                token: '',
+                rtoken: '',
+                profile: null,
+                error: null,
+                avatarUrl: null,
+                cookies: null,
+            }
+
+            vm.func = {
+                signIn: function () {
+                    adobeIMS.signIn({
+                        test: 1,
+                    }, { say: 'hello' });
+                },
+                signInPKCE: function () {
+                    adobeIMS.signIn({
+                        test: 1,
+                    }, { say: 'hello' }, 'code');
+                },
+                getAccessToken: function () {
+                    vm.state.token = adobeIMS.getAccessToken();
+                },
+                refreshToken: function () {
+                    adobeIMS.refreshToken();
+                },
+
+                reAuthenticate: function () {
+                    adobeIMS.reAuthenticate({
+                    }, "check");
+                },
+                reAuthenticateForce: function () {
+                    adobeIMS.reAuthenticate({
+                        api: 'apioverride',
+                    }, "force");
+                },
+                getReauthAccessToken: function () {
+                    vm.state.rtoken = adobeIMS.getReauthAccessToken();
+                },
+                getTransitoryAuthorizationCode: function(){
+                    adobeIMS.getTransitoryAuthorizationCode({});
+                },
+                jumpToken: function() {
+                    adobeIMS.jumpToken({});
+                },
+                signOut: function () {
+                    adobeIMS.signOut({});
+                },
+                getProfile: function () {
+                    adobeIMS.getProfile().then(profile => {
+                        vm.$apply(function () {
+                            vm.state.profile = profile;
+                        });
+                    })
+                    .catch( ex => {
+                        vm.$apply(function () {
+                            vm.state.profile = ex;
+                        });
+                    })
+                },
+
+
+                signUp: function () {
+                    adobeIMS.signUp();
+                },
+
+                showCookies: function () {
+                    vm.state.cookies = document.cookie;
+                },
+                validateToken: function() {
+                    adobeIMS.validateToken().then(v => {
+                    })
+                    .catch(ex => {
+                    })
+                },
+                signInWithSocialProvider: function() {
+                    adobeIMS.signInWithSocialProvider('google');
+                }
+
+            };
+
+            injectAdobeIms = (src = '/release/imslib.js') => {
+                const adobeImsLibScriptElement = document.createElement("script");
+
+                adobeImsLibScriptElement.onerror = function (ex) {
+                    console.log('exception on load script ', ex);
+                };
+
+                document.head.appendChild(adobeImsLibScriptElement);
+
+                adobeImsLibScriptElement.src = src;
+            };
+
+            injectAdobeIms();
+
+        });
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+
+body {
+	font-family: "Helvetica Neue", "Helvetica", sans-serif;
+}
+
+
+.button:active {
+	box-shadow: inset 0 0.125rem 0.065rem 0 rgba(0, 0, 0, .4); /* todo: fallback for rgba */
+}
+
+.button.signin, .button.signup {
+	background-color: #3081D3;
+	background-position: center center;
+	color: #ffffff;
+	text-transform: uppercase;
+	/*box-shadow: inset 0 0.125rem 0.065rem 0 rgba(0, 0, 0, .4); *//* todo: fallback for rgba */
+}
+
+.button[data-adobeid-action="reauthenticate"] {
+	display: none;
+}
+
+
+.button.large, .jumbo input {
+	border-radius: 0.1875rem;
+	font-size: 1.2rem;
+	height: auto;
+
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+
+.button-extra {
+	font-weight: 100;
+	float: right;
+	text-transform: none;
+}
+
+.button {
+	text-align: left;
+	border-radius: 0.1875rem;
+
+
+	display:block;
+	padding: 1rem 2rem;
+
+	/*we-re hacking already, yay*/
+	-webkit-appearance: none;
+
+
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+
+	background-color: #ffffff;
+	color: #666666;
+	text-shadow: none;
+	border: none;
+	box-shadow: inset 0 -0.125rem 0.065rem 0 rgba(0, 0, 0, .4); /* todo: fallback for rgba */
+	width: 300px;
+	margin: 0 auto;
+	text-align: left;
+
+	cursor: pointer;
+}
+
+.button.primary:active {
+	background-color: #3690eb;
+}
+
+.button:active {
+	box-shadow: inset 0 0.125rem 0.065rem 0 rgba(0, 0, 0, .4); /* todo: fallback for rgba */
+}
+
+a.button {
+	text-decoration: none;
+}
+
+#avatar img {
+	border-radius: 150px;
+	height: 150px; /* So the layout of the page doesn't change when the image loads. */
+}
+
+
+html, body {
+	height: 100%;
+}
+
+body {
+	background: url("img.png") no-repeat top right;
+	background-size: 100% 100%;
+	min-height: 100%;
+	color: #ffffff;
+	text-shadow: 0px 0px 3px #222;
+	letter-spacing: 0.05;
+}
+.center {
+	margin: 50px auto;
+	width: 500px;
+	text-align: center;
+}
+
+.signedInUI {
+	display: none;
+	text-align:center;
+}
+#avatar {
+	display: block;
+	margin-bottom: 40px;
+}
+
+.topOptions {
+	background-color: #222;
+	color: #eee;
+	padding: 0.5em;
+}
+.topOption {
+	display: inline-block;
+	padding: 0.5em 1em 0.5em 1em;
+}
+.topOption.selected {
+	font-weight: bold;
+	background-color: #000;
+}
+.topOption a, .topOption a:visited {
+	color: #eee;
+}
+.topOption a:hover {
+	color: #fff;
+	text-shadow: 0px 0px 5px #ddd;
+}
+
+
+@-webkit-keyframes moveLeftRight {
+	0% { -webkit-transform: translateX(-200px); transform: translateX(-200px); }
+	100% { -webkit-transform: translateX(200px); transform: translateX(200px); }
+}
+@keyframes moveLeftRight {
+	0% { -webkit-transform: translateX(-200px); transform: translateX(-200px); }
+	100% { -webkit-transform: translateX(200px); transform: translateX(200px); }
+}
+.proveItsSPA {
+	-webkit-animation: moveLeftRight 15s linear 0s infinite alternate;
+	animation: moveLeftRight 15s linear 0s infinite alternate;
+}
+
+#ims-env {
+	margin-left: .25em;
+	vertical-align: middle;
+}
+
+.small {
+	font-size: .75em;
+	margin-left: .25em;
+	vertical-align: middle;
+}
